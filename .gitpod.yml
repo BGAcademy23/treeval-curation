@@ -29,8 +29,6 @@ tasks:
     init: |
       pip install nf-core
 
-  - name: Download Containers
-    init: |
       nf-core download sanger-tol/treeval --revision 1.1.1 --compress none -d --force --outdir sanger-treeval --container-cache-utilisation amend --container-system docker
 
   - name: Install JBrowse2
