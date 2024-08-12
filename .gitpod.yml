@@ -25,12 +25,6 @@ tasks:
 
       bash nextflow self-update
 
-  - name: Install NF-Core
-    init: |
-      pip install nf-core
-
-      nf-core download sanger-tol/treeval --revision 1.1.1 --compress none -d --force --outdir sanger-treeval --container-cache-utilisation amend --container-system docker
-
   - name: Install JBrowse2
   # https://jbrowse.org/jb2/download/#jbrowse-cli-tools
     command: |
