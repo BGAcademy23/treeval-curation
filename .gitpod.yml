@@ -23,7 +23,15 @@ tasks:
 
       chmod +x nextflow
 
-      nextflow self-update
+      bash nextflow self-update
+
+  - name: Install NF-Core
+    init: |
+      pip install nf-core
+
+  - name: Download Containers
+    init: |
+      nf-core download sanger-tol/treeval --revision 1.1.1 --compress none -d --force --outdir sanger-treeval --container-cache-utilisation amend --container-system docker
 
   - name: Install JBrowse2
   # https://jbrowse.org/jb2/download/#jbrowse-cli-tools
@@ -37,13 +45,6 @@ tasks:
       cd jbrowse2/
 
       npx serve . -l 3000
-
-  - name: Install TreeVal Pipeline
-  # https://github.com/sanger-tol/treeval
-    init: |
-      cd /workspace/treeval-curation/
-        
-      git clone -b 1.1.1 https://github.com/sanger-tol/treeval.git
 
   - name: Install Curtation Pretext
   # https://github.com/sanger-tol/curationpretext
